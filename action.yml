@@ -1,0 +1,37 @@
+name: 'Get date/time'
+description: 'Gets the date and/or time that the action was executed at.'
+author: 'Edric Chan'
+inputs:
+  date-format:
+    description: 'A date format that the date command supports. (See http://tldp.org/LDP/abs/html/timedate.html for more info)'
+    required: false
+  get-last-modified-file-path:
+    description: 'The file path to get the last modified date and time. (Internally adds the `-r` option with the file name specified)'
+    required: false
+  timezone:
+    description: 'The timezone to be used for the date and time. (Internally specifes the TZ environment variable)'
+    required: false
+  use-iso-8601-format:
+    description: 'Whether to use the ISO 8601 date and time format. (Internally adds the `-I` option to the date command) (Only supported on the Linux version of date)'
+    required: false
+  use-utc-timezone:
+    description: 'Whether to use the UTC timezone. (Internally adds the `-u` option to the date command)'
+    required: false
+  use-rfc-2822-format:
+    description: 'Whether to use the RFC 2822 date and time format. (Internally adds the `-R` option to the date command) (Only supported on the UNIX version of date)'
+    required: false
+  use-rfc-3339-format:
+    description: 'Whether to use the RFC 3339 date and time format. (Internally adds the `-R` option to the date command) (Only supported on the Linux version of date)'
+    required: false
+  use-rfc-5322-format:
+    description: 'Whether to use the RFC 5322 date and time format. (Internally adds the `-R` option to the date command) (Only supported on the Linux version of date)'
+    required: false
+outputs:
+  date:
+    description: 'The current date and time as a string.'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+branding:
+  icon: 'clock'
+  color: 'gray-dark'
